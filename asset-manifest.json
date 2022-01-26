@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/scrimba-quizzical/static/css/main.faf32c26.css",
+    "main.js": "/scrimba-quizzical/static/js/main.f93fe280.js",
+    "index.html": "/scrimba-quizzical/index.html",
+    "main.faf32c26.css.map": "/scrimba-quizzical/static/css/main.faf32c26.css.map",
+    "main.f93fe280.js.map": "/scrimba-quizzical/static/js/main.f93fe280.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.faf32c26.css",
+    "static/js/main.f93fe280.js"
+  ]
+}

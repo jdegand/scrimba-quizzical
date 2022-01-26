@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.faf32c26.css","mappings":"AAAA,MACI,wBACJ,CAEA,OACI,sBACJ,CAEA,KACI,oBACJ","sources":["components/Question/Question.css"],"sourcesContent":[".blue {\n    background-color: skyblue;\n}\n\n.green {\n    background-color: green;\n}\n\n.red {\n    background-color: red;\n}"],"names":[],"sourceRoot":""}
