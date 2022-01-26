@@ -3,7 +3,7 @@
 
 [Scrimba](https://scrimba.com/learn/learnreact/section-4-solo-project-co24f49bea8aace7c174082c8)
 
-[Live Link](https://jdegand.github.io/quizzical)
+[Live Link](https://jdegand.github.io/scrimba-quizzical)
 
 ## Overview
 
