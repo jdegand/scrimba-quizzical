@@ -49,7 +49,7 @@
 - [Pluralsight](https://www.pluralsight.com/guides/how-to-use-radio-buttons-in-reactjs) - radio buttons & react
 - [Stack Overflow](https://stackoverflow.com/questions/27784212/how-to-use-radio-buttons-in-reactjs) - radio buttons & react
 - [Stack Overflow](https://stackoverflow.com/questions/48014390/how-to-handle-multiple-radio-button-groups-in-one-component-in-reactjs) - radio buttons
-- [Stack Overflow](https://stackoverflow.com/questions/53051065/how-to-pass-multiple-values-of-selected-radio-button-in-react-js)
+- [Stack Overflow](https://stackoverflow.com/questions/53051065/how-to-pass-multiple-values-of-selected-radio-button-in-react-js) - pass multiple values of selected radio button in react
 - [Blog](https://prateeksurana.me/blog/why-you-should-avoid-using-state-for-computed-properties/) - avoid state for computed properties
 - [Geeks for Geeks](https://www.geeksforgeeks.org/how-to-handle-multiple-input-field-in-react-form-with-a-single-function/) - multiple inputs in react
 - [YouTube](https://www.youtube.com/watch?v=zdhcxmugQYc) - ReactJS - Tutorial : How To Work With Multiple Radio Buttons with Function Based Components
