@@ -1,11 +1,11 @@
 import './Question.css';
 
-function Question(props){
+function Question(props) {
 
     const htmlDecode = input => {
         const doc = new DOMParser().parseFromString(input, "text/html")
         return doc.documentElement.textContent
-      }
+    }
 
     return (
         <div>
@@ -14,21 +14,21 @@ function Question(props){
                 {props.question.answers.map(answer => {
 
                     const style1 = {
-                        backgroundColor: props.question.correctAnswer === props.question.userAnswer ? "#94D7A2":"#F8BCBC"
+                        backgroundColor: props.question.correctAnswer === props.question.userAnswer ? "#94D7A2" : "#F8BCBC"
                     }
 
                     const style2 = {
-                        backgroundColor: answer.isHeld ? "skyblue": "",
+                        backgroundColor: answer.isHeld ? "skyblue" : "",
                     }
 
                     return (
-                        <div 
-                            key={answer.id} 
+                        <div
+                            key={answer.id}
                             onClick={(event) => props.handleChoice(event, props.question.id, answer.id)}
-                            >
+                        >
                             <span
-                             style={props.showAnswers && answer.isHeld ? style1 : style2}
-                             >
+                                style={props.showAnswers && answer.isHeld ? style1 : style2}
+                            >
                                 {answer.answer}
                             </span>
                         </div>
@@ -37,13 +37,6 @@ function Question(props){
             </div>
         </div>
     )
-
-    /*     <span
-            className={props.showAnswers && answer.isHeld && props.question.correctAnswer === props.question.userAnswer ? "green": ""}
-            >
-            {answer.answer}
-            </span>
-    */
 }
 
 export default Question;

@@ -2,21 +2,20 @@ import './App.css';
 import React, { useEffect } from 'react';
 import Start from "./components/Start/Start"
 import QuestionList from './components/QuestionList/QuestionList';
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 
 function App() {
-
   const [startGame, setStartGame] = React.useState(false);
   const [formData, setFormData] = React.useState({
     category: '9',
     difficulty: 'easy',
   })
-  const [questions, setQuestions]= React.useState([])
+  const [questions, setQuestions] = React.useState([])
   const [score, setScore] = React.useState(0)
   const [showAnswers, setShowAnswers] = React.useState(false);
   const [replay, setReplay] = React.useState(false);
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     fetch(`https://opentdb.com/api.php?amount=5&category=${formData.category}&difficulty=${formData.difficulty}&type=multiple`)
       .then(res => res.json())
       .then(data => {
@@ -26,7 +25,7 @@ function App() {
             ...q.incorrect_answers,
             q.correct_answer,
           ])
-          
+
           const allAnswers = answerArr.map(answer => {
             return {
               id: nanoid(),
@@ -34,7 +33,7 @@ function App() {
               isHeld: false
             }
           })
-          
+
           return {
             id: nanoid(),
             question: q.question,
@@ -45,28 +44,25 @@ function App() {
         })
         setQuestions(combinedAnswers)
 
-      }) 
-        
-  },[startGame, replay])
-  
+      })
 
-  //console.log({questions})
+  }, [startGame, replay, formData.category, formData.difficulty])
 
-  function toggleStart(){
+  function toggleStart() {
     setStartGame(true);
   }
 
-  function handleChange(event){
+  function handleChange(event) {
     setFormData(prevState => {
-      const {name, value} = event.target;
+      const { name, value } = event.target;
       return {
-        ...prevState, 
+        ...prevState,
         [name]: value
       }
     })
   }
 
-  function handleChoice(event, questionId, answerId){
+  function handleChoice(event, questionId, answerId) {
 
     let answersArray = questions.filter(x => x.id === questionId);
 
@@ -74,7 +70,7 @@ function App() {
 
     let possibleAnswers = [...questionAnswered.answers]
 
-    possibleAnswers.map(a => a.isHeld = false); //reset all isHeld so only 1 is 'isHeld' at a time
+    possibleAnswers.forEach(a => a.isHeld = false); //reset all isHeld so only 1 is 'isHeld' at a time
 
     let pickedAnswer = possibleAnswers.find(a => a.id === answerId)
 
@@ -84,65 +80,57 @@ function App() {
 
     possibleAnswers.splice(answerIdx, 1, pickedAnswer)
 
-    let answersArrayUpdated = {...possibleAnswers, userAnswer: event.target.innerText}
+    let answersArrayUpdated = { ...possibleAnswers, userAnswer: event.target.innerText }
 
-    //console.log({answersArrayUpdated})
-    
-    let questionUpdated = {...questionAnswered, answersArrayUpdated, userAnswer: answersArrayUpdated.userAnswer}
+    let questionUpdated = { ...questionAnswered, answersArrayUpdated, userAnswer: answersArrayUpdated.userAnswer }
 
-    //console.log({questionAnswered})
- 
-   let index = questions.findIndex(el => el.id === questionAnswered.id);
+    let index = questions.findIndex(el => el.id === questionAnswered.id);
 
-   //console.log(index)
+    let clonedQuestions = [...questions];
 
-   let clonedQuestions = [...questions];
+    clonedQuestions[index] = questionUpdated;
 
-   clonedQuestions[index] = questionUpdated;
-
-   setQuestions(clonedQuestions);
+    setQuestions(clonedQuestions);
   }
 
-  //console.log({questions})
-
   function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
+    let currentIndex = array.length, randomIndex;
+
     // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-  
+    while (currentIndex !== 0) {
+
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
+
       // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-  
+
     return array;
-}
-
-function handleScore(){
-  setScore(0);
-  for(let i = 0; i < questions.length; i++){
-    if(questions[i].correctAnswer === questions[i].userAnswer){
-      setScore(prev => prev + 1)
-    }
   }
-  setShowAnswers(prev => !prev);
-}
 
-function restart(){
-  setScore(0)
-  setShowAnswers(false)
-  setReplay(prev => !prev)
-}
+  function handleScore() {
+    setScore(0);
+    for (let i = 0; i < questions.length; i++) {
+      if (questions[i].correctAnswer === questions[i].userAnswer) {
+        setScore(prev => prev + 1)
+      }
+    }
+    setShowAnswers(prev => !prev);
+  }
+
+  function restart() {
+    setScore(0)
+    setShowAnswers(false)
+    setReplay(prev => !prev)
+  }
 
   return (
     <div className="App">
-      {startGame ? <QuestionList score={score} questions={questions} handleChoice={handleChoice} showAnswers={showAnswers} handleScore={handleScore} replay={restart} /> : 
-      <Start toggleStart={toggleStart} formData={formData} setFormData={setFormData} handleChange={handleChange} />}
+      {startGame ? <QuestionList score={score} questions={questions} handleChoice={handleChoice} showAnswers={showAnswers} handleScore={handleScore} replay={restart} /> :
+        <Start toggleStart={toggleStart} formData={formData} setFormData={setFormData} handleChange={handleChange} />}
     </div>
   );
 }
