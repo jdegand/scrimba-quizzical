@@ -1,4 +1,5 @@
 # Scrimba - Learn React for free Course
+
 ## Section 4 Solo Project: Quizzical
 
 [Scrimba](https://scrimba.com/learn/learnreact/section-4-solo-project-co24f49bea8aace7c174082c8)
@@ -7,36 +8,28 @@
 
 ## Overview
 
-![](quizzical-homepage.png)
-![](quizzical-selection.png)
-![](quizzical-scoring.png)
+![Homepage](screenshots/quizzical-homepage.png)
+![Selection](screenshots/quizzical-selection.png)
+![Scoring](screenshots/quizzical-scoring.png)
 
-## Thoughts 
+## Thoughts
 
 - Originally tried to use radio buttons for answer choices
 - Mapping an answers array to render a radio button - didn't really mix and I didn't find any examples where this was done so I abandoned that idea
-
 - Shuffled answer choices with code found on Stack Overflow
-
 - Answers and questions have html-code in them - looked at some other attempts on Github and found a decode function
-
 - In question, used code equivalent to a nested ternary to conditionally render the styles
-
-- Didn't conditionally render correct answer 
+- Didn't conditionally render correct answer
 - Obviously, the idea was to add more conditional rendering practice but since questions repeat on some categories frequently, it may be a positive to not show the correct answer.
-
 - Didn't style the app as the logic was not as solid as I would have liked
 - handleChoice has way too much logic in it but the overly complicated data structure I started with and worrying about mutating state necessitated it
 - Also performance wise - handleChoice is terrible
-
 - Updating nested state is still a major disadvantage of React ie callback-esque hell
 - Really hard to tell if you mutated state or not from just looking at the code
-
 - After screenshots were taken,  added a break after question to break it up
-
 - I duplicated components when making breaking changes - they are the all copy files
 
-## Requirements 
+## Requirements
 
 - [x] Two Screens (start & questions)
 - [x] Pull 5 questions from the OTDB API
@@ -63,11 +56,11 @@
 - [YouTube](https://www.youtube.com/watch?v=ETNv7en7DBU) - React Quiz App tutorial
 - [Stack Overflow](https://stackoverflow.com/questions/37828867/react-update-state-on-click) - updating state on click
 - [Stack Overflow](https://stackoverflow.com/questions/37662708/react-updating-state-when-state-is-an-array-of-objects) - updating state when state is an array of objects
-- [Stack Overflow](https://stackoverflow.com/questions/29537299/react-how-to-update-state-item1-in-state-using-setstate) - setState 
+- [Stack Overflow](https://stackoverflow.com/questions/29537299/react-how-to-update-state-item1-in-state-using-setstate) - setState
 - [Stack Overflow](https://stackoverflow.com/questions/55987953/how-do-i-update-states-onchange-in-an-array-of-object-in-react-hooks) - updating state with hooks
 - [Stack Overflow](https://stackoverflow.com/questions/43040721/how-to-update-nested-state-properties-in-react) - nested state & updating
 - [Blog](https://nikitahl.com/how-to-assign-multiple-classes-in-react/) - multiple classNames workarounds
 - [Stack Overflow](https://stackoverflow.com/questions/42630473/react-toggle-class-onclick) - toggle onclick
-- [Stack Overflow](https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs) - multiple functions onclick in react ?
+- [Stack Overflow](https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs) - multiple functions onclick in react?
 - [Dev.to](https://dev.to/samba_code/nested-ternary-statements-in-react-jsx-35kp) - nested ternary
 - [Github](https://github.com/santivdt/quizzical/blob/2d90b75943bc180b620eec874ad1661803353a0b/utils/helpers.js#L1) - decode function taken from here
