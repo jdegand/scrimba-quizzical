@@ -1,6 +1,6 @@
 # Scrimba - Learn React for free Course
 
-**Note**: This challenge is gone from updated the React courses on Scrimba. The web archive version of this [challenge](https://web.archive.org/web/20211121045539/https://scrimba.com/learn/learnreact/section-4-solo-project-co24f49bea8aace7c174082c8) also does not work.
+**Note**: This challenge is gone from the updated React courses on Scrimba. The web archive version of this [challenge](https://web.archive.org/web/20211121045539/https://scrimba.com/learn/learnreact/section-4-solo-project-co24f49bea8aace7c174082c8) also does not work.
 
 ## Section 4 Solo Project: Quizzical
 
